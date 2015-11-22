@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical"
+              android:paddingLeft="10dp"
+              android:paddingRight="10dp"
+              android:paddingTop="20dp">
+
+    <TextView
+        android:id="@+id/light1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"/>
+
+    <SeekBar
+        android:id="@+id/seek1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="255"/>
+
+    <TextView
+        android:id="@+id/light2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingTop="1dp"
+        android:textSize="15dp"/>
+
+    <SeekBar
+        android:id="@+id/seek2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="255"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Master Light"
+        android:visibility="gone"/>
+
+    <SeekBar
+        android:id="@+id/seek3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:max="100"
+        android:visibility="gone"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:text="Scene"
+        android:textSize="15dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/scene_1"
+            android:layout_width="0dip"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:onClick="onSceneChanged"
+            android:text="Off"/>
+
+        <Button
+            android:id="@+id/scene_2"
+            android:layout_width="0dip"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:onClick="onSceneChanged"
+            android:text="Warm"/>
+
+        <Button
+            android:id="@+id/scene_3"
+            android:layout_width="0dip"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:onClick="onSceneChanged"
+            android:text="Energize"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/scene_4"
+            android:layout_width="0dip"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:onClick="onSceneChanged"
+            android:text="Full"/>
+
+        <Button
+            android:id="@+id/scene_5"
+            android:layout_width="0dip"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:onClick="onSceneChanged"
+            android:text="Comport"/>
+
+        <Button
+            android:id="@+id/scene_6"
+            android:layout_width="0dip"
+            android:layout_height="70dp"
+            android:layout_weight="1"
+            android:onClick="onSceneChanged"
+            android:text="Sleep"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingTop="10dp"
+        android:text="Json "
+        android:textSize="15dp"/>
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="4dp"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:paddingTop="4dp">
+
+        <TextView
+            android:id="@+id/json"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </ScrollView>
+</LinearLayout>
