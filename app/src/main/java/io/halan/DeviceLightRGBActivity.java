@@ -1,5 +1,6 @@
 package io.halan;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.SeekBar;
@@ -9,6 +10,9 @@ import org.json.JSONException;
 
 import java.util.HashMap;
 
+import uz.shift.colorpicker.LineColorPicker;
+import uz.shift.colorpicker.OnColorChangedListener;
+
 /**
  * Created on 2015-11-15.
  */
@@ -17,6 +21,7 @@ public class DeviceLightRGBActivity extends DeviceActivity implements SeekBar.On
     private SeekBar seek1;
     private SeekBar seek2;
     private SeekBar seek3;
+    private LineColorPicker colorPicker;
 
 
     @Override
@@ -47,6 +52,20 @@ public class DeviceLightRGBActivity extends DeviceActivity implements SeekBar.On
         seek2.setOnSeekBarChangeListener(this);
         seek3.setOnSeekBarChangeListener(this);
 
+        colorPicker = (LineColorPicker) findViewById(R.id.picker);
+        colorPicker.setSelectedColor(Color.RED);
+        colorPicker.setOnColorChangedListener(new OnColorChangedListener() {
+            @Override
+            public void onColorChanged(int c) {
+                Cons.log("newcoclor " + Integer.toHexString(c));
+                seek1.setProgress(Color.red(c));
+                seek2.setProgress(Color.green(c));
+                seek3.setProgress(Color.blue(c));
+                sendBrightness(1);
+            }
+        });
+
+
     }
 
     @Override
@@ -61,10 +80,11 @@ public class DeviceLightRGBActivity extends DeviceActivity implements SeekBar.On
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-        sendBrightness();
+
+        sendBrightness(1);
     }
 
-    private void sendBrightness() {
+    private void sendBrightness(int status) {
 
         int brightness = seek1.getProgress() + seek2.getProgress() + seek3.getProgress();
 
@@ -72,43 +92,20 @@ public class DeviceLightRGBActivity extends DeviceActivity implements SeekBar.On
         map.put("brightness1", seek1.getProgress());
         map.put("brightness2", seek2.getProgress());
         map.put("brightness3", seek3.getProgress());
-        map.put("status", brightness == 0 ? 0 : 1);
+        map.put("status", status);
         getDevice().send(this, map);
     }
 
     public void onSceneChanged(View view) {
+        int status = 1;
         switch (view.getId()) {
             case R.id.scene_1:
-                seek1.setProgress(0);
-                seek2.setProgress(0);
-                seek3.setProgress(0);
+                status = 0;
                 break;
             case R.id.scene_2:
-                seek1.setProgress(255);
-                seek2.setProgress(255);
-                seek3.setProgress(0);
-                break;
-            case R.id.scene_3:
-                seek1.setProgress(255);
-                seek2.setProgress(0);
-                seek3.setProgress(255);
-                break;
-            case R.id.scene_4:
-                seek1.setProgress(255);
-                seek2.setProgress(255);
-                seek3.setProgress(255);
-                break;
-            case R.id.scene_5:
-                seek1.setProgress(0);
-                seek2.setProgress(255);
-                seek3.setProgress(255);
-                break;
-            case R.id.scene_6:
-                seek1.setProgress(100);
-                seek2.setProgress(100);
-                seek3.setProgress(100);
+                status = 1;
                 break;
         }
-        sendBrightness();
+        sendBrightness(status);
     }
 }

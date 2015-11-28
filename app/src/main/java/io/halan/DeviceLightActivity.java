@@ -59,23 +59,24 @@ public class DeviceLightActivity extends DeviceActivity implements SeekBar.OnSee
 
     @Override
     public void onStopTrackingTouch(SeekBar seekBar) {
-        sendBrightness();
+        sendBrightness(1);
     }
 
-    private void sendBrightness() {
+    private void sendBrightness(int status) {
 
         HashMap<String, Object> map = new HashMap<String, Object>();
         map.put("brightness1", seek1.getProgress());
         map.put("brightness2", seek2.getProgress());
+        map.put("status", status);
         getDevice().send(this, map);
     }
 
 
     public void onSceneChanged(View view) {
+        int status = 1;
         switch (view.getId()) {
             case R.id.scene_1:
-                seek1.setProgress(0);
-                seek2.setProgress(0);
+                status = 0;
                 break;
             case R.id.scene_2:
                 seek1.setProgress(255);
@@ -86,8 +87,6 @@ public class DeviceLightActivity extends DeviceActivity implements SeekBar.OnSee
                 seek2.setProgress(255);
                 break;
             case R.id.scene_4:
-                seek1.setProgress(255);
-                seek2.setProgress(255);
                 break;
             case R.id.scene_5:
                 seek1.setProgress(240);
@@ -98,6 +97,6 @@ public class DeviceLightActivity extends DeviceActivity implements SeekBar.OnSee
                 seek2.setProgress(0);
                 break;
         }
-        sendBrightness();
+        sendBrightness(status);
     }
 }

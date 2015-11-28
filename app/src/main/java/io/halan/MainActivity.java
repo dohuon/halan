@@ -12,6 +12,7 @@ import android.net.wifi.WifiManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -54,6 +55,12 @@ public class MainActivity extends BaseActivity implements AdapterView.OnItemClic
         }
     }
 
+
+    @Override
+    public boolean onKeyUp(int keyCode, KeyEvent event) {
+        Cons.log("onKeyUp " + keyCode);
+        return true;
+    }
     private void registerWifiReceiver() {
         registerReceiver(new BroadcastReceiver() {
             @Override
