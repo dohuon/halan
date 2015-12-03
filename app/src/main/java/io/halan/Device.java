@@ -16,6 +16,12 @@ import java.util.HashMap;
 
 import cz.msebera.android.httpclient.Header;
 import cz.msebera.android.httpclient.entity.StringEntity;
+import io.halan.ui.BaseActivity;
+import io.halan.ui.DeviceLightActivity;
+import io.halan.ui.DeviceLightRGBActivity;
+import io.halan.ui.DeviceRemoteLightActivity;
+import io.halan.ui.DeviceTemperatureHumidityMeter;
+import io.halan.ui.MainActivity;
 
 /**
  * Created on 2015-11-14.
@@ -157,6 +163,9 @@ public class Device {
         if (getType().equals("light_led_rgb")) {
             intent = new Intent(mainActivity, DeviceLightRGBActivity.class);
         }
+        if (getType().equals("temperature_humidity_meter")) {
+            intent = new Intent(mainActivity, DeviceTemperatureHumidityMeter.class);
+        }
 
         intent.putExtra("address", getAddress());
         Cons.log("onclick " + getAddress());
@@ -181,6 +190,9 @@ public class Device {
         }
         if (getType().equals("light_led_rgb")) {
             return R.drawable.ic_color_lens;
+        }
+        if (getType().equals("temperature_humidity_meter")) {
+            return R.drawable.ic_insert_chart_black_48dp;
         }
         return iconResId;
     }

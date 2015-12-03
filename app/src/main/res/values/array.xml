@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="sample_colors">
+        <item>#FF0000</item>
+        <item>#FF8000</item>
+        <item>#FFFF00</item>
+        <item>#80FF00</item>
+        <item>#00FF00</item>
+        <item>#00FFFF</item>
+        <item>#0080FF</item>
+        <item>#0000FF</item>
+        <item>#7F00FF</item>
+        <item>#FF00FF</item>
+        <item>#FF007F</item>
+    </array>
+    <array name="sample_colorss">
+        <item>#795548</item>
+        <item>#FF5722</item>
+        <item>#FF9800</item>
+        <item>#F9CE1D</item>
+        <item>#FFEB3B</item>
+        <item>#CDDC39</item>
+        <item>#8BC34A</item>
+        <item>#00BCD4</item>
+        <item>#03A9F4</item>
+        <item>#2196F3</item>
+        <item>#3F51B5</item>
+        <item>#673AB7</item>
+        <item>#9C27B0</item>
+        <item>#E91E63</item>
+        <item>#F44336</item>
+    </array>
+    <array name="sample_colorsX">
+        <item>#0000FF</item>
+        <item>#0067FF</item>
+        <item>#00CDFF</item>
+        <item>#00FFCC</item>
+        <item>#00FF66</item>
+        <item>#00FF00</item>
+        <item>#67FF00</item>
+        <item>#CDFF00</item>
+        <item>#FFCC00</item>
+        <item>#FF6600</item>
+        <item>#FF00FF</item>
+    </array>
+</resources>

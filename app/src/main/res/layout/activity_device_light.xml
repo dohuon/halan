@@ -93,7 +93,7 @@
             android:layout_height="70dp"
             android:layout_weight="1"
             android:onClick="onSceneChanged"
-            android:text="Full"/>
+            android:text="On"/>
 
         <Button
             android:id="@+id/scene_5"

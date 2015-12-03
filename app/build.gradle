@@ -8,8 +8,8 @@ android {
         applicationId "io.halan"
         minSdkVersion 18
         targetSdkVersion 22
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
     }
     buildTypes {
         release {
@@ -17,13 +17,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+    repositories {
+        maven {
+            url "http://dl.bintray.com/dasar/maven"
+        }
+    }
 }
+
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile(group: 'uz.shift', name: 'colorpicker', version: '0.5', ext: 'aar')
     testCompile 'junit:junit:4.12'
     compile 'com.github.rahatarmanahmed:circularprogressview:2.4.0'
     compile 'com.android.support:appcompat-v7:22.2.1'
     compile 'com.loopj.android:android-async-http:1.4.9'
     compile 'com.google.code.gson:gson:2.4'
+    compile 'com.h6ah4i.android.widget.verticalseekbar:verticalseekbar:0.5.2'
 }

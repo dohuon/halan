@@ -10,6 +10,8 @@ import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 
+import io.halan.ui.MainActivity;
+
 /**
  * Created on 2015-11-14.
  */

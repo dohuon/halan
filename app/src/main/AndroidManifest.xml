@@ -14,22 +14,17 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity
-            android:name=".DeviceLightActivity"
-            android:label="Device"/>
-        <activity
-            android:name=".DeviceRemoteLightActivity"
-            android:label="Device"/>
-        <activity
-            android:name=".DeviceLightRGBActivity"
-            android:label="Device"/>
+        <activity android:name=".ui.DeviceLightActivity"/>
+        <activity android:name=".ui.DeviceRemoteLightActivity" />
+        <activity android:name=".ui.DeviceLightRGBActivity"/>
+        <activity android:name=".ui.DeviceTemperatureHumidityMeter"/>
 
     </application>
 
